@@ -1,13 +1,15 @@
 {
-    "name": "qwat/bitcoin",
-    "description": "bitcoin",
+    "name": "qwatos/bitcoin-utility",
+    "description": "PHP console utility to control your Bitcoin addresses on your own",
+	"keywords": ["bitcoin", "blockchain", "PHP", "wallet"],
     "type": "project",
-    "license": "proprietary",
+	"homepage": "https://github.com/qwatos/bitcoin-utility",
+    "license": "MIT",
     "authors": [
         {
-            "name": "qwat",
-            "email": "qwatos@gmail.com",
-            "homepage": "http://qwat.ru"
+			"name": "qwatos",
+			"homepage": "https://github.com/qwatos",
+			"role": "Author"
         }
     ],
 	"autoload": {
