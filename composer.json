@@ -1,0 +1,38 @@
+{
+    "name": "qwat/bitcoin",
+    "description": "bitcoin",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "qwat",
+            "email": "qwatos@gmail.com",
+            "homepage": "http://qwat.ru"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"App\\": "src/"
+		}
+	},
+    "require": {
+        "php": ">=7.0",
+        "ext-curl": "*",
+        "ext-gmp": "*",
+        "ext-zip": "*",
+		"blockchain/blockchain": "*",
+        "bitwasp/bitcoin": "*",
+        "phpseclib/mcrypt_compat": "*",
+		"symfony/console": "^4.1",
+		"symfony/dotenv": "^4.1",
+		"symfony/flex": "^1.0",
+		"symfony/framework-bundle": "^4.1",
+		"symfony/yaml": "^4.1"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
+    }
+}
