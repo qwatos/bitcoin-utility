@@ -17,7 +17,9 @@ Depends on https://blockchain.info web resource functionality via https://github
 
 ## Install
 
-  composer install qwatos/bitcoin-utility
+Download this project and inside its directory execute
+
+	composer install
 
 ## Usage
 
