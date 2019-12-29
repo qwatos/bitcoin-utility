@@ -18,7 +18,7 @@ class TransactionInputInfo
 	 * @param string $value
 	 * @param string $address
 	 */
-	public function __construct($n, $value, $address)
+	public function __construct(int $n, string $value, string $address)
 	{
 		$this->n = $n;
 		$this->value = $value;

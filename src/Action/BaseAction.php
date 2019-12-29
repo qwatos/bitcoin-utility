@@ -3,7 +3,6 @@
 namespace App\Action;
 
 use App\BitcoinClientInterface;
-use App\BitcoinClient\BlockChainInfo;
 
 abstract class BaseAction
 {
@@ -11,9 +10,9 @@ abstract class BaseAction
 	private $bitcoinClient;
 
 	/**
-	 * @param BlockChainInfo $bitcoinClient
+	 * @param BitcoinClientInterface $bitcoinClient
 	 */
-	public function __construct(BlockChainInfo $bitcoinClient)
+	public function __construct(BitcoinClientInterface $bitcoinClient)
 	{
 		$this->bitcoinClient = $bitcoinClient;
 	}
@@ -21,7 +20,7 @@ abstract class BaseAction
 	/**
 	 * @return BitcoinClientInterface
 	 */
-	protected function getBitcoinClient()
+	protected function getBitcoinClient(): BitcoinClientInterface
 	{
 		return $this->bitcoinClient;
 	}

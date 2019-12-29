@@ -15,7 +15,7 @@ class Wallet implements WalletInterface
 	 * @param string $privateKey
 	 * @param string $publicKey
 	 */
-	public function __construct($privateKey, $publicKey)
+	public function __construct(string $privateKey, string $publicKey)
 	{
 		$this->privateKey = $privateKey;
 		$this->publicKey = $publicKey;
@@ -24,7 +24,7 @@ class Wallet implements WalletInterface
 	/**
 	 * @return string
 	 */
-	public function getPrivateKey()
+	public function getPrivateKey(): string
 	{
 		return $this->privateKey;
 	}
@@ -32,7 +32,7 @@ class Wallet implements WalletInterface
 	/**
 	 * @return string
 	 */
-	public function getPublicKey()
+	public function getPublicKey(): string
 	{
 		return $this->publicKey;
 	}

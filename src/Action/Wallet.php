@@ -40,7 +40,7 @@ class Wallet extends BaseAction
 	 * @return WalletCreatedResponse
 	 * @throws Fatality
 	 */
-	public function createWallet()
+	public function createWallet(): WalletCreatedResponse
 	{
 		$network = Bitcoin::getNetwork();
 		$privFactory = new PrivateKeyFactory();
@@ -75,7 +75,7 @@ class Wallet extends BaseAction
 	 * @return AddressResponse
 	 * @throws Fatality
 	 */
-	public function getAddressFromWallet()
+	public function getAddressFromWallet(): AddressResponse
 	{
 		$network = Bitcoin::getNetwork();
 
@@ -88,7 +88,7 @@ class Wallet extends BaseAction
 	 * @return AddressInfoResponse
 	 * @throws Fatality
 	 */
-	public function getAddressInfoFromWallet()
+	public function getAddressInfoFromWallet(): AddressInfoResponse
 	{
 		$network = Bitcoin::getNetwork();
 
@@ -101,7 +101,7 @@ class Wallet extends BaseAction
 	 * @return PayToPubKeyHashAddress
 	 * @throws Fatality
 	 */
-	protected function getBase58AddressFromWallet()
+	protected function getBase58AddressFromWallet(): PayToPubKeyHashAddress
 	{
 		$wallet = $this->walletProvider
 			->setCredentials($this->credentialsProvider->getCredentials())

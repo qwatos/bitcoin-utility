@@ -19,8 +19,10 @@
 	},
     "require": {
         "php": ">=7.0",
+        "ext-bcmath": "*",
         "ext-curl": "*",
         "ext-gmp": "*",
+        "ext-json": "*",
         "ext-zip": "*",
 		"blockchain/blockchain": "*",
         "bitwasp/bitcoin": "*",

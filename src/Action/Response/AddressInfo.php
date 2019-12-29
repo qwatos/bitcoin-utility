@@ -14,7 +14,7 @@ class AddressInfo extends Address
 	 * @param string $address
 	 * @param string $balance
 	 */
-	public function __construct($address, $balance)
+	public function __construct(string $address, string $balance)
 	{
 		parent::__construct($address);
 		$this->balance = $balance;
@@ -24,7 +24,7 @@ class AddressInfo extends Address
 	 * @param TransactionInfo $transaction
 	 * @return static
 	 */
-	public function addTransaction(TransactionInfo $transaction)
+	public function addTransaction(TransactionInfo $transaction): AddressInfo
 	{
 		$this->transactionList[] = $transaction;
 

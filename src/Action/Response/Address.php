@@ -10,7 +10,7 @@ class Address
 	/**
 	 * @param string $address
 	 */
-	public function __construct($address)
+	public function __construct(string $address)
 	{
 		$this->address = $address;
 	}

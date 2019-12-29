@@ -12,7 +12,7 @@ class Address extends BaseAction
 	 * @return AddressInfo
 	 * @throws Fatality
 	 */
-	public function getAddressInfo($address)
+	public function getAddressInfo(string $address): AddressInfo
     {
 		return $this->getBitcoinClient()->getAddressInfo($address);
     }

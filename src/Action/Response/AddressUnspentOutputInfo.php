@@ -18,7 +18,7 @@ class AddressUnspentOutputInfo
 	 * @param string $value
 	 * @param string $hash
 	 */
-	public function __construct($n, $value, $hash)
+	public function __construct(int $n, string $value, string $hash)
 	{
 		$this->n = $n;
 		$this->value = $value;

@@ -27,7 +27,7 @@ interface RendererInterface
 	 * @param TransactionInfo $transactionInfo
 	 * @param string $prefix
 	 */
-	public function renderTransactionInfo(TransactionInfo $transactionInfo, $prefix = '');
+	public function renderTransactionInfo(TransactionInfo $transactionInfo, string $prefix = '');
 
 	/**
 	 * @param WalletCreated $walletCreatedResponse

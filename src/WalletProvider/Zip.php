@@ -24,7 +24,7 @@ class Zip implements WalletProviderInterface
 	 * @param string | null $walletPath
 	 * @return static
 	 */
-	public function setWalletPath($walletPath = null)
+	public function setWalletPath($walletPath = null): WalletProviderInterface
 	{
 		$this->walletPath = $walletPath ?: getcwd() . DIRECTORY_SEPARATOR . 'wallet.zip';
 
@@ -34,7 +34,7 @@ class Zip implements WalletProviderInterface
 	/**
 	 * @return string
 	 */
-	public function getWalletPath()
+	public function getWalletPath(): string
 	{
 		return $this->walletPath;
 	}
@@ -44,7 +44,7 @@ class Zip implements WalletProviderInterface
 	 * @return static
 	 * @throws Fatality
 	 */
-	public function setCredentials(CredentialsInterface $credentials)
+	public function setCredentials(CredentialsInterface $credentials): WalletProviderInterface
 	{
 		if (!$credentials instanceof HavePasswordInterface) {
 			throw new Fatality('Error: failed to obtain the password from credentials');
@@ -79,7 +79,7 @@ class Zip implements WalletProviderInterface
 	 * @return WalletInterface
 	 * @throws Fatality
 	 */
-	public function load()
+	public function load(): WalletInterface
 	{
 		if (false === file_exists($this->walletPath)) {
 			throw new Fatality("Error: failed to open file <{$this->walletPath}>");

@@ -26,7 +26,7 @@ class TransactionInfo
 	 * @param string $hash
 	 * @param bool $confirmed
 	 */
-	public function __construct(DateTime $time, $hash, $confirmed)
+	public function __construct(DateTime $time, string $hash, bool $confirmed)
 	{
 		$this->time = $time;
 		$this->hash = $hash;
@@ -37,7 +37,7 @@ class TransactionInfo
 	 * @param TransactionInputInfo $input
 	 * @return static
 	 */
-	public function addInput(TransactionInputInfo $input)
+	public function addInput(TransactionInputInfo $input): TransactionInfo
 	{
 		$this->inputList[] = $input;
 
@@ -48,7 +48,7 @@ class TransactionInfo
 	 * @param TransactionOutputInfo $output
 	 * @return static
 	 */
-	public function addOutput(TransactionOutputInfo $output)
+	public function addOutput(TransactionOutputInfo $output): TransactionInfo
 	{
 		$this->outputList[] = $output;
 

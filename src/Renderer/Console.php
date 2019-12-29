@@ -19,7 +19,7 @@ class Console implements RendererInterface
 	 * @param OutputInterface $output
 	 * @return static
 	 */
-	public function setup(OutputInterface $output)
+	public function setup(OutputInterface $output): Console
 	{
 		$this->output = $output;
 
@@ -61,7 +61,7 @@ class Console implements RendererInterface
 	 * @param TransactionInfo $transactionInfo
 	 * @param string $prefix
 	 */
-	public function renderTransactionInfo(TransactionInfo $transactionInfo, $prefix = '')
+	public function renderTransactionInfo(TransactionInfo $transactionInfo, string $prefix = '')
 	{
 		$this->output->writeln($prefix . $transactionInfo->time->format('Y-m-d H:i:s') . "\thash = {$transactionInfo->hash}" .
 			($transactionInfo->confirmed ? '' : ', not confirmed'));

@@ -11,7 +11,7 @@ class WalletCreated extends Address
 	 * @param string $address
 	 * @param string | null $walletPath
 	 */
-	public function __construct($address, $walletPath = null)
+	public function __construct(string $address, $walletPath = null)
 	{
 		parent::__construct($address);
 		$this->walletPath = $walletPath;

@@ -14,7 +14,7 @@ interface WalletProviderInterface
 	 * @return static
 	 * @throws Fatality
 	 */
-	public function setCredentials(CredentialsInterface $credentials);
+	public function setCredentials(CredentialsInterface $credentials): WalletProviderInterface;
 
 	/**
 	 * @param WalletInterface $wallet
@@ -26,5 +26,5 @@ interface WalletProviderInterface
 	 * @return WalletInterface
 	 * @throws Fatality
 	 */
-	public function load();
+	public function load(): WalletInterface;
 }

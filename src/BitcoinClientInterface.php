@@ -17,25 +17,25 @@ interface BitcoinClientInterface
 	 * @return AddressInfo
 	 * @throws Fatality
 	 */
-	public function getAddressInfo($address);
+	public function getAddressInfo(string $address): AddressInfo;
 
 	/**
 	 * @param string $transactionId
 	 * @return TransactionInfo
 	 * @throws Fatality
 	 */
-	public function getTransactionInfo($transactionId);
+	public function getTransactionInfo(string $transactionId): TransactionInfo;
 
 	/**
 	 * @param string $address (Base58)
 	 * @return AddressUnspentOutputInfo[]
 	 * @throws Fatality
 	 */
-	public function getAddressUnspentOutputInfoList($address);
+	public function getAddressUnspentOutputInfoList(string $address): array;
 
 	/**
 	 * @param string $transactionHex
 	 * @throws Fatality
 	 */
-	public function pushTransaction($transactionHex);
+	public function pushTransaction(string $transactionHex);
 }

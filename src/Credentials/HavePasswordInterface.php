@@ -9,5 +9,5 @@ interface HavePasswordInterface extends CredentialsInterface
 	/**
 	 * @return string
 	 */
-	public function getPassword();
+	public function getPassword(): string;
 }

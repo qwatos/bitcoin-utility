@@ -11,7 +11,7 @@ class Password implements HavePasswordInterface
 	/**
 	 * @param string $password
 	 */
-	public function __construct($password)
+	public function __construct(string $password)
 	{
 		$this->password = $password;
 	}
@@ -19,7 +19,7 @@ class Password implements HavePasswordInterface
 	/**
 	 * @return string
 	 */
-	public function getPassword()
+	public function getPassword(): string
 	{
 		return $this->password;
 	}

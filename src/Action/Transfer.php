@@ -49,7 +49,7 @@ class Transfer extends BaseAction
 	 * @return TransferResponse
 	 * @throws Fatality
 	 */
-	public function transfer($addressTo, $amountBtc, $feeBtc)
+	public function transfer(string $addressTo, string $amountBtc, string $feeBtc): TransferResponse
     {
 		$network = Bitcoin::getNetwork();
 
@@ -126,7 +126,7 @@ class Transfer extends BaseAction
 	 * @param AddressUnspentOutputInfo[] $txOutputList
 	 * @return string
 	 */
-	protected function getTransactionOutputBalance(array $txOutputList)
+	protected function getTransactionOutputBalance(array $txOutputList): string
 	{
 		return array_reduce($txOutputList, function ($summa, AddressUnspentOutputInfo $txOutput) {
 			return bcadd($summa, $txOutput->value, self::BTC_PRECISION);
@@ -138,7 +138,7 @@ class Transfer extends BaseAction
 	 * @param string $amount
 	 * @return AddressUnspentOutputInfo[]
 	 */
-	protected function getTransactionOutputListMatched(array $txOutputList, $amount)
+	protected function getTransactionOutputListMatched(array $txOutputList, string $amount): array
 	{
 		usort($txOutputList, function (AddressUnspentOutputInfo $txOutput1, AddressUnspentOutputInfo $txOutput2) {
 			return bccomp($txOutput1->value, $txOutput2->value, self::BTC_PRECISION);
@@ -171,7 +171,7 @@ class Transfer extends BaseAction
 	 * @return TransactionOutputInfo
 	 * @throws Fatality
 	 */
-	protected function getTransactionOutputInfo($txId, $vout)
+	protected function getTransactionOutputInfo(string $txId, int $vout): TransactionOutputInfo
 	{
 		$transactionResponse = $this->getBitcoinClient()->getTransactionInfo($txId);
 
@@ -197,7 +197,7 @@ class Transfer extends BaseAction
 	 * @return int
 	 * @throws Fatality
 	 */
-	protected function convertBtcToSatoshi($amount, $amountName)
+	protected function convertBtcToSatoshi(string $amount, string $amountName): int
 	{
 		if (!preg_match('/^\d+(\.\d{1,' . self::BTC_PRECISION . '})?$/', $amount)) {
 			throw new Fatality("Error: invalid $amountName format");

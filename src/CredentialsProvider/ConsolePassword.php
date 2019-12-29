@@ -16,7 +16,7 @@ class ConsolePassword implements CredentialsProviderInterface
 	/**
 	 * @return CredentialsInterface
 	 */
-	public function getCredentials()
+	public function getCredentials(): CredentialsInterface
 	{
 		$prompt = 'Enter the password for wallet';
 		if (preg_match('/^win/i', PHP_OS)) {
@@ -36,7 +36,7 @@ class ConsolePassword implements CredentialsProviderInterface
 	 * @param string $prompt
 	 * @return string | null
 	 */
-	protected function getPasswordWithWindowsPowerShell($prompt)
+	protected function getPasswordWithWindowsPowerShell(string $prompt)
 	{
 		if (!file_exists(self::WINDOWS_POWER_SHELL_PATH)) {
 			return null;
@@ -53,7 +53,7 @@ class ConsolePassword implements CredentialsProviderInterface
 	 * @param string $prompt
 	 * @return string | null
 	 */
-	protected function getPasswordWithWindowsCscript($prompt)
+	protected function getPasswordWithWindowsCscript(string $prompt)
 	{
 		$vbscript = sys_get_temp_dir() . 'prompt_password.vbs';
 		file_put_contents(
@@ -71,7 +71,7 @@ class ConsolePassword implements CredentialsProviderInterface
 	 * @param string $prompt
 	 * @return string | null
 	 */
-	protected function getPasswordWithUnixReadline($prompt)
+	protected function getPasswordWithUnixReadline(string $prompt)
 	{
 		if (!function_exists('\\readline_callback_handler_install')) {
 			return null;
@@ -98,7 +98,7 @@ class ConsolePassword implements CredentialsProviderInterface
 	 * @param string $prompt
 	 * @return string | null
 	 */
-	protected function getPasswordWithUnixBash($prompt)
+	protected function getPasswordWithUnixBash(string $prompt)
 	{
 		$command = self::UNIX_BASH_PATH . " -c 'echo OK'";
 		if (rtrim(shell_exec($command)) !== 'OK') {
@@ -118,7 +118,8 @@ class ConsolePassword implements CredentialsProviderInterface
 	 * @param string $str
 	 * @return string
 	 */
-	protected static function removeBOM($str) {
+	protected static function removeBOM(string $str): string
+	{
 		return substr($str, 0, 3) == pack('CCC', 0xef, 0xbb, 0xbf)
 			? substr($str, 3)
 			: $str;

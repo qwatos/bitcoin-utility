@@ -12,7 +12,7 @@ class Transaction extends BaseAction
 	 * @return TransactionInfo
 	 * @throws Fatality
 	 */
-	public function getTransactionInfo($transactionId)
+	public function getTransactionInfo(string $transactionId): TransactionInfo
     {
 		return $this->getBitcoinClient()->getTransactionInfo($transactionId);
 	}

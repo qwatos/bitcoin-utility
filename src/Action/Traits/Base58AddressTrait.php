@@ -15,7 +15,7 @@ trait Base58AddressTrait
 	 * @return Base58AddressInterface
 	 * @throws Fatality
 	 */
-	protected function getBase58AddressFromString($addressString, NetworkInterface $network)
+	protected function getBase58AddressFromString(string $addressString, NetworkInterface $network): Base58AddressInterface
 	{
 		if (!$addressString) {
 			throw new Fatality('Error: empty bitcoin address');

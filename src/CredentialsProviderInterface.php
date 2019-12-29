@@ -10,5 +10,5 @@ interface CredentialsProviderInterface
 	/**
 	 * @return CredentialsInterface
 	 */
-	public function getCredentials();
+	public function getCredentials(): CredentialsInterface;
 }

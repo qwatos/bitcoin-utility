@@ -31,7 +31,7 @@ class BlockChainInfo implements BitcoinClientInterface
 	 * @return AddressInfo
 	 * @throws Fatality
 	 */
-	public function getAddressInfo($address)
+	public function getAddressInfo(string $address): AddressInfo
 	{
 		$network = Bitcoin::getNetwork();
 
@@ -62,7 +62,7 @@ class BlockChainInfo implements BitcoinClientInterface
 	 * @return TransactionInfo
 	 * @throws Fatality
 	 */
-	public function getTransactionInfo($transactionId)
+	public function getTransactionInfo(string $transactionId): TransactionInfo
 	{
 		try {
 			$transaction = $this->getBlockChainApi()->Explorer->getTransaction($transactionId);
@@ -80,7 +80,7 @@ class BlockChainInfo implements BitcoinClientInterface
 	 * @return AddressUnspentOutputInfo[]
 	 * @throws Fatality
 	 */
-	public function getAddressUnspentOutputInfoList($address)
+	public function getAddressUnspentOutputInfoList(string $address): array
 	{
 		try {
 			return array_map(
@@ -100,7 +100,7 @@ class BlockChainInfo implements BitcoinClientInterface
 	 * @param string $transactionHex
 	 * @throws Fatality
 	 */
-	public function pushTransaction($transactionHex)
+	public function pushTransaction(string $transactionHex)
 	{
 		try {
 			$this->getBlockChainApi()->Push->TX($transactionHex);
@@ -119,7 +119,7 @@ class BlockChainInfo implements BitcoinClientInterface
 	 * @param BlockchainTransaction $transaction
 	 * @return TransactionInfo
 	 */
-	protected function convertBlockchainTransactionToTransactionInfo($transaction)
+	protected function convertBlockchainTransactionToTransactionInfo(BlockchainTransaction $transaction): TransactionInfo
 	{
 		$time = (new DateTime())
 			->setTimestamp($transaction->time)
@@ -145,7 +145,7 @@ class BlockChainInfo implements BitcoinClientInterface
 	/**
 	 * @return Blockchain
 	 */
-	protected function getBlockChainApi()
+	protected function getBlockChainApi(): Blockchain
 	{
 		static $blockChain = null;
 
